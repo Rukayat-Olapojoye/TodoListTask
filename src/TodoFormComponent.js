@@ -1,13 +1,18 @@
 import './todo.css';
-//import {useState} from 'react';
-
+import {useState} from 'react';
+import TodoListComponent from './TodoListComponent';
 
 function TodoFormComponent(){
 
-const ToDoItemHandler =(e) =>{
-    console.log(e.target.value)
+    const [TodoInputs, setTodoInputs] = useState("")
+    const TodoItems ={};
 
-    
+const ToDoItemHandler =(e) =>{
+    TodoInputs=setTodoInputs(TodoItems.push(e))
+ 
+        //console.log(e.target.value)
+
+
 }
 
 const SaveToDoHandler =(eventObject)=>{
@@ -40,7 +45,7 @@ return (
             id="deadline"
             type="date"
             className="Deadline" 
-            placeholder="">
+            >
             </input>
  
             <button

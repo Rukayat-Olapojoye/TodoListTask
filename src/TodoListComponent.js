@@ -1,10 +1,15 @@
 
 import TodoFormComponent from './TodoFormComponent';
-import './todo.js';
 
 const TodoListComponent =()=>{
 return(
-    <div className="div-styling">
+    <div className="Todolist-container">
+        <h2>All Todo list</h2>
+        <ul>
+            <li>
+                
+            </li>
+        </ul>
         </div>
 )
 }

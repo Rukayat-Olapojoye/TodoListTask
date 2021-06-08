@@ -1,17 +1,17 @@
 import './todo.css';
 import {useState} from 'react';
-import TodoListComponent from './TodoListComponent';
 
 function TodoFormComponent(){
 
-    const [TodoInputs, setTodoInputs] = useState("")
-    const TodoItems ={};
+    const [TodoInputs, setTodoInputs] = useState({})
+    const TodoItems = {};
 
 const ToDoItemHandler =(e) =>{
-    TodoInputs=setTodoInputs(TodoItems.push(e))
- 
+    
+    // eslint-disable-next-line
+       TodoInputs = setTodoInputs(TodoItems.push(e))
+ return TodoInputs;
         //console.log(e.target.value)
-
 
 }
 
@@ -57,10 +57,9 @@ return (
         </form>
     </div>
 
-)
+);
 
 
 }
-
 
 export default TodoFormComponent;

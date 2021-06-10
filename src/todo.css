@@ -15,7 +15,7 @@
 
 
 * {
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     box-sizing: border-box;
     /* border-color: solid var(--my-green-color);
@@ -72,7 +72,12 @@
 
 
 .Todolist-container{
-    display:inline-block;
+
+  margin: 40px auto;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
     max-width: 600px;
     width: 100%;
     border: 2px solid var(--my-gray-color);
@@ -80,9 +85,4 @@
   
   }
 
-  .Todolist-container ul{
-    display: flex;
-    flex-direction:column;
-    align-content:space-between;
-    color: black;
-  }
+ 

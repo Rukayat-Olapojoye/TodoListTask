@@ -1,55 +1,69 @@
 import './todo.css';
 import {useState} from 'react';
 
-function TodoFormComponent(){
+function TodoForm(props){
 
-    const [TodoInputs, setTodoInputs] = useState({})
-    const TodoItems = {};
+ const [TodoTask, setTodoTask] = useState("")
 
-const ToDoItemHandler =(e) =>{
+const [TodoPriority, setTodoPriority] = useState("")
+ 
+
+   // Handler for the onSubmit
+const ToDoItemHandler =(e) => { 
+    e.preventDefault();
+
+    // if (!(e.target.value ==="") ){
+    // }
+        const todo={
+            task:TodoTask,
+            priority:TodoPriority
+            }
+       //const Todo = JSON.stringify({TodoTask, TodoPriority})
+           props.addTask(todo);
+        setTodoTask("");
+       setTodoPriority("");
+    };
     
-    // eslint-disable-next-line
-       TodoInputs = setTodoInputs(TodoItems.push(e))
- return TodoInputs;
-        //console.log(e.target.value)
+
+    
+
+// handler for the Onchange 
+const InputItemHandler=(e)=>{
+setTodoTask(e.target.value)
 
 }
-
-const SaveToDoHandler =(eventObject)=>{
+const InputPriorityHandler=(e)=>{
+    setTodoPriority(e.target.value)
+    //setTodoPriority(e.target.value)
     
-} 
-
+    }
+ 
 return (
     <div className="div-style">
 
         <h1 className="Todoheader" id="header">
         My ToDo List
         </h1>
-        <form onChange ={ToDoItemHandler}
-        action=""> 
+        <form onSubmit={ToDoItemHandler}> 
             <input 
-            id="task"
+             id="task"
             type="text"
             className="TaskInput" 
-            placeholder="Enter Task">
+            placeholder="Enter Task"
+            value={TodoTask}
+            onChange={InputItemHandler}>
             </input>
 
-            <input 
-            id="prority"
+        <input 
+             id="prority"
             type="text"
             className="priorityInput" 
-            placeholder="Task Priority">
-            </input>
+            placeholder="Task Priority"
+           value={TodoPriority}
+            onChange={InputPriorityHandler}>
+            </input> 
 
-            <input 
-            id="deadline"
-            type="date"
-            className="Deadline" 
-            >
-            </input>
- 
             <button
-            onClick={SaveToDoHandler}
             type ="submit"
              className="addtodo">
                  Add ToDo
@@ -62,4 +76,4 @@ return (
 
 }
 
-export default TodoFormComponent;
+export default TodoForm;

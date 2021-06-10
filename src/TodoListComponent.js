@@ -1,17 +1,40 @@
+//import {useState} from "react";
+//import TodoFormComponent from './TodoFormComponent';
 
-import TodoFormComponent from './TodoFormComponent';
 
-const TodoListComponent =(props)=>{
-return(
-    <div className="Todolist-container">
-        <h2>All Todo list</h2>
-        <ul>
-            <li>
-                <TodoFormComponent/>
-            </li>
-        </ul>
-        </div>
-)
-}
 
-export default TodoListComponent;
+const TodoListComponent =({todo})=>{
+
+   // const [EditTask, setEditTask] =useState({todo})
+   // const [DoneTask, setDoneTask] = useState({todo})
+
+    const EditTaskHandler= (props)=>{
+          // setEditTodo([...EditTodo,{todo}])
+    }
+
+   const CompletedTaskHandler = ()=>{
+       
+
+   }
+
+        return(
+            <div className="Todolist-container">
+                
+                <h3 style={{color:'black'}}>{todo.task}</h3>
+                <h4 style={{color:'purple'}}>{todo.priority}</h4>
+               <button className="addtodo" onClick={EditTaskHandler}>Edit</button>
+               <button className="addtodo" onClick={CompletedTaskHandler}>Done</button>
+               
+             
+               {/* {EditTodo.map(toEdit=>(
+               <TodoFormComponent todo={toEdit}/>))} */}
+               
+                </div>
+        )
+            
+    }
+
+    export default TodoListComponent;
+
+
+

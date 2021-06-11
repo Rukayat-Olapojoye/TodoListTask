@@ -1,11 +1,9 @@
 import './todo.css';
-import {useState} from 'react';
+//import {useState} from 'react';
 
 function TodoForm(props){
 
- const [TodoTask, setTodoTask] = useState("")
-
-const [TodoPriority, setTodoPriority] = useState("")
+ 
  
 
    // Handler for the onSubmit
@@ -15,13 +13,14 @@ const ToDoItemHandler =(e) => {
     // if (!(e.target.value ==="") ){
     // }
         const todo={
-            task:TodoTask,
-            priority:TodoPriority
+            task:props.TodoTask,
+            priority:props.TodoPriority,
+            id: Math.random()
             }
        //const Todo = JSON.stringify({TodoTask, TodoPriority})
            props.addTask(todo);
-        setTodoTask("");
-       setTodoPriority("");
+        props.setTodoTask("");
+       props.setTodoPriority("");
     };
     
 
@@ -29,11 +28,11 @@ const ToDoItemHandler =(e) => {
 
 // handler for the Onchange 
 const InputItemHandler=(e)=>{
-setTodoTask(e.target.value)
+props.setTodoTask(e.target.value)
 
 }
 const InputPriorityHandler=(e)=>{
-    setTodoPriority(e.target.value)
+    props.setTodoPriority(e.target.value)
     //setTodoPriority(e.target.value)
     
     }
@@ -50,7 +49,7 @@ return (
             type="text"
             className="TaskInput" 
             placeholder="Enter Task"
-            value={TodoTask}
+            value={props.TodoTask}
             onChange={InputItemHandler}>
             </input>
 
@@ -59,14 +58,14 @@ return (
             type="text"
             className="priorityInput" 
             placeholder="Task Priority"
-           value={TodoPriority}
+           value={props.TodoPriority}
             onChange={InputPriorityHandler}>
             </input> 
 
             <button
             type ="submit"
              className="addtodo">
-                 Add ToDo
+                 {props.Editing? 'Edit ToDo':'Add Todo'}
             </button>
         </form>
     </div>
